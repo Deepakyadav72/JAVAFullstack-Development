@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.hello {
+    text-transform: capitalize;
+    font-size: 85px;
+    font-weight: 700;
+    text-align: center;
+    font-size: Bitcount Prop Single ;
+}
+.nothing {
+    text-transform: capitalize;
+    font-size: 85px;
+    font-weight: 300;
+    text-align: center;
+    font-size: Bitcount Prop Single ;
+}
+ .hello{
+    transition-timing-function: easy-out;
+    transition-duration: 0.5s;
+    transition-delay: 0.7s;
+    transform: scale(1.5);
+ }
+
+ .animation-1{
+    animation-name: Naina;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    text-align: center;
+    font-size: 85px;
+    font-weight: 700;
+    font-family: Roboto ; 
+    background: yellow;
+
+    
+ }
+
+ @keyframes Naina {
+    from{
+        translate:200vw 0;
+        scale: 200% 1;
+    }
+    to {
+        translate: 0vw 0;
+        scale: 100% 1;
+    }
+}
+
+.animation-2{
+    animation-name: sunaina;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    text-align: center;
+    font-size: 85px;
+    font-weight: 700;
+    font-family: Roboto ; 
+    background: yellow;
+
+    
+ }
+
+@keyframes sunaina {
+    from{
+        translate: -200vw 0;
+        scale: 200% 1;
+    }
+    to{
+        translate: 0 0;
+        scale: 100% 1;
+    }
+
+}
