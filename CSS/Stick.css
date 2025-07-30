@@ -1,0 +1,18 @@
+.child{
+    position: sticky;
+    top: 300px;
+    height: 200px;
+    width: 200px;
+}
+
+body{
+    height: 100vh;
+}
+.parent{
+    height: 100px;
+    background: lightcyan;
+
+}
+.long-contant{
+   position: relative;
+}

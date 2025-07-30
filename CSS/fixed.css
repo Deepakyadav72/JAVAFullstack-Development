@@ -1,0 +1,15 @@
+.parent{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: red;
+    color: aliceblue;
+    height: 200px;
+
+}
+body{
+    border: 3px solid green;
+    height: 500vh;
+
+}
