@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+}
+.text{
+    text-align:center;
+    text-align: lowercase;
+    font-size: xx-large;
+    background: radial-gradient(circle, red, black);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 25px solid transparent;
+    padding: 15px;
+    border-image:url(https://media.gettyimages.com/id/455421575/vector/rainforest-tropical-border.jpg?s=612x612&w=gi&k=20&c=HjKlUhTRgkUun1CfpB6xnbjnAlFwIAsjROnQmgbjoVs=) 70 round;
+}
+p:hover{
+    transition: rotate(90deg);
+}

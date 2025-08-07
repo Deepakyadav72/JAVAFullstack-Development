@@ -1,0 +1,48 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent{
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    padding: 15px;
+    gap: 20px;
+    border: 2px solid blue;
+    flex-wrap: wrap;
+    width: 30%;
+}
+
+.box{
+    background: rgb(83, 83, 94);
+    color: white;
+    text-align: left;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.child-1, .child-2, .child3{   
+    flex-grow: 0.28 ;
+}
+
+.child-4, .child-6, .child-9{
+    flex-grow: 0.3 ;
+}
+
+.child-5, .child-10{
+    flex-grow: 0.3;
+}
+
+
+.child-7, .child-8{
+    flex-grow: 0.3;
+}
