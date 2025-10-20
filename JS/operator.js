@@ -24,7 +24,7 @@ let maried1 = false;
 
 /* Comparison operators */
 
-let num1 = 3;
+let num1 = 2;
 console.log('🚀 ~ num1:', typeof num1);
 let num2 = "3";
 console.log('🚀 ~ num2:', typeof num2);
