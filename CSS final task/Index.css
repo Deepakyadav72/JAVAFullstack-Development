@@ -107,7 +107,7 @@ body{
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.thought_box{
+/* .thought_box{
     position: absolute;
     bottom: 20px;
     left: -80px;
@@ -118,7 +118,7 @@ body{
     font-size: 14px;
     border-left: 5px solid ornage;
     border-radius: 8px;
-}
+} */
 
 .thought_box span{
     display: block;
