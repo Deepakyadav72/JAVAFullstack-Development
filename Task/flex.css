@@ -14,21 +14,21 @@ body{
     display: flex;
     /* justify-content: center;
     align-items: center; */
-    /* padding: 15px;
+    padding: 15px;
     gap: 20px;
     border: 2px solid blue;
     flex-wrap: wrap;
-    width: 30%; */
+    width: 30%;
 }
 
 .box{
-    background: rgb(83, 83, 94);
+    /* background: rgb(83, 83, 94);
     color: white;
     text-align: left;
     padding: 8px;
     border-radius: 5px;
     font-size: 20px;
-}
+} */
 
 .child-1, .child-2, .child3{   
     flex-grow: 0.28 ;
