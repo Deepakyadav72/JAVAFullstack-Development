@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 
 import { Routes, Route, Link } from 'react-router-dom'
-import { HomePage } from '../Components/Home'
-import { About } from '../Components/About'
-import { Contact } from '../Components/Contact'
-import { Login } from '../Components/Login'
-import { SinglePage } from '../Pages/singlePage'
-import { User } from '../Components/User'
+import { HomePage } from '../../Routes/src/Components/Home'
+import { About } from '../../Routes/src/Components/About'
+import { Contact } from '../../Routes/src/Components/Contact'
+import { Login } from '../../Routes/src/Components/Login'
+import { SinglePage } from '../../Routes/src/Pages/singlePage'
+import { User } from '../../Routes/src/Components/User'
 import { NotFoundPage } from '../Components/NotFoundPages'
 import { PrivateRoute } from '../Components/PrivetRoute'
 
