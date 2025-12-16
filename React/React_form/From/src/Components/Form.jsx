@@ -1,38 +1,56 @@
-import {CustomForm} from "./customComponets";
+import './App.css';
+import {CustomForm} from "./Components/Form";
+import {PropsOverView} from './Componets/PropsOverview';
+import { Propsvalidation } from './Components/Propsvalidation';
 
-export const Form =()=>{
+
+funsction App(){
+
     const fields=[
         {
-            name:'username',type:'text',
+            name:'username',
+            type:'text',
             placeholder: 'Enter your name',
-            label: 'Username',required:'true'
+            label: 'Username',
+            isrequired:'true'
         },
-        {name:'email', type:'email',
-            placeholder:'Enter your email',label:'Email',
-            required:true},
-             {name:'password', type:'password',
-            placeholder:'Enter your password',label:'password',
-            required:true},
-             {name:'confirmpassword', type:'password',
-            placeholder:'Enter your  Confirm password',label:' Confirm password',
-            required:true},
-             {name:'phone', type:'tel',
-            placeholder:'Enter your number',label:'Phone',
-            required:true},
+         {
+            name:'userEmail',
+            type:'email',
+            placeholder: 'Enter your email',
+            label: 'User email',
+            isrequired:'true'
+        },
+         {
+            name:'userPhone',
+            type:'tel',
+            placeholder: 'Enter your Phone',
+            label: 'Phone',
+            isrequired:'true'
+        },
+         {
+            name:'userpass',
+            type:'password',
+            placeholder: 'Enter your password',
+            label: 'password',
+            isrequired:'true'
+        },
+        
     ];
 
-    const handleFormSubmit=(data)=>{
-        console.log('Form Submitted:',data);
-    };
-    return(<>
-    <div>
+    
+    return(
+    <>
+    {/* <div>
         <h1>React from with Props validation</h1>
         <CustomForm
         field={fields}
         onSubmit={handleFormSubmit}
         buttonText="Register"/>
-    </div>
+    </div> */}
+    <Form formData={field}/>
     </>
 
-    )
+    );
 }
+export default App;
