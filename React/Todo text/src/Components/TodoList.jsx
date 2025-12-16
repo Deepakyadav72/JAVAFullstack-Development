@@ -58,14 +58,11 @@ export const TodoList = ({ props }) => {
             justifyContent: "center",
           }}
         >
-          {/* Checkbox */}
           <input
             type="checkbox"
             checked={item.isComplete}
             onChange={() => toggleComplete(item.id)}
           />
-
-          {/* Text or Edit Field */}
           {item.isEdits ? (
             <input
               type="text"
@@ -81,8 +78,6 @@ export const TodoList = ({ props }) => {
               {item.text}
             </h3>
           )}
-
-          {/* Buttons */}
           {item.isEdits ? (
             <>
               <button onClick={() => handleCancel(item.id)}>Cancel</button>
