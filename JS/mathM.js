@@ -1,9 +1,9 @@
    
 //    using Methods
    
-// let num=10;
-// let ans=Math.pow(num,2);
-// console.log(ans);
+let num=10;
+let ans=Math.pow(num,2);
+console.log(ans);
 
 
 // // sqrt method
