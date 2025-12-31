@@ -1,18 +1,27 @@
-import* as type from './Action';
+import * as types from './Action';
 
-const initialState={count:0};
+const initialState = { count: 0 };
 
-export const CounterReducer= (state =initialState,action)=>{
-    switch(action.type){
-        case type.INCREMENT:
+
+export const CounterReducer = (state =initialState, action) => {
+    console.log('🚀 ~ action:', action);
+    console.log('🚀 ~ state:', state);
+    switch (action.type){
+        case types.INCREMENT:
             return{
                 ...state,
-                count:state.count++,
-
-    
+                 count: state.count +1,
             };
-            default:
-                return state;
-    }
 
-};
+        case types.DECREMENT:
+            return{
+                ...state,
+                 count: state.count - 1,
+            };
+
+
+
+        default:
+            return state;
+    }
+}
