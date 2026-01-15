@@ -10,11 +10,11 @@ export const myOwnReducer=(state = initialValue,{type, payload}) =>{
                 count: state.count + 1
             };
         
-         case types.DECREMENT:
-            return {
-                ...state,
-                count: state.count - 1
-            };
+        //  case types.DECREMENT:
+        //     return {
+        //         ...state,
+        //         count: state.count - 1
+        //     };
         
     
 
