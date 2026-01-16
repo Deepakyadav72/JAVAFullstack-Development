@@ -23,7 +23,7 @@ export const AllRoutes=()=>{
                </PrivateRoutes>
                
                }></Routes>
-                <Routes path="/counter" element={<Counter/>}></Routes>
+                {/* <Routes path="/counter" element={<Counter/>}></Routes> */}
         </Routes>
         </>
     );
