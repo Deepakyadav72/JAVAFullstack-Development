@@ -15,9 +15,6 @@ export const myOwnReducer=(state = initialValue,{type, payload}) =>{
                 ...state,
                 count: state.count - 1
             };
-        
-    
-
             default:
                 return state;
     }
