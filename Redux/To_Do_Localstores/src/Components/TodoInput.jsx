@@ -10,9 +10,9 @@ export const TodoInput=()=>{
     };
     return(
         <>
-        {/* <h1>Todo</h1>
+        <h1>Todo</h1>
         <input type="text" ref={inputData} />
         <button onClick={()=>handleAdd}>add</button>
         </>
     );
-}; */}
+};
