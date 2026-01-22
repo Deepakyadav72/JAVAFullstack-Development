@@ -6,10 +6,5 @@
             "status":false
 
         }
-    ],
-    "cart":[
-        {
-            "count":0
-        }
     ]
 }
