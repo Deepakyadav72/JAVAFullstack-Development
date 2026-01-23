@@ -20,7 +20,7 @@ export const TodosInput = ({ getApi }) => {
 
   const handleAdd = () => {
     addTodos()?.then(() => {
-      inputValue.current.value = "";  // ✅ input clear
+      inputValue.current.value = "";  
       getApi();
     });
   };
