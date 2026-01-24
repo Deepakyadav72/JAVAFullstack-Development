@@ -1,38 +1,51 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+// import axios from 'axios';
 
 import { TodosInput } from './TodoInput';
-import axios from 'axios';
-import * as actFunc from '../Redux/Action';
+import {getApi} from '../Redux/action';
 
 export const Todos = () => {
-     const data = useSelector((state) => state.todos);
-  console.log('🚀 ~ data:', data);
-  const dispatch = useDispatch();
+  const {todo, isLoadings,isErrors}  = useSelector((state)=>{
+    return{
+      todo:state.todos,
+      isLoadings:state.isLoadings,
+      isErrors:state.isErrors,
+    };
+  },shallowEqual);
+      console.log('🚀 ~ isLoadings:', isLoadings);
+      console.log('🚀 ~ isErrors:', isErrors);
 
-  const getApi = () =>{
+  // ✅ SAFE selector (always array)
+  const data = useSelector((state) => state.todos || []);
+
+  const getApi = () => {
     axios
       .get('http://localhost:8080/todo')
-      .then((res) => dispatch(actFunc.getTodosSuccess(res.data)))
-      .catch((err) =>console.log(err));
+      .then((res) => {
+        dispatch(actFunc.getTodosSuccess(res.data));
+      })
+      .catch((err) => console.log(err));
   };
 
-    React.useEffect(() =>{
-      getApi();
-    },[]);
-    console.log(data);
+  useEffect(() => {
+    getApi();
+  }, []);
 
   return (
     <>
       <h1>To-dos</h1>
       <TodosInput getApi={getApi} />
-      {data.map((el) => (
-        <p key={el.id}>
-          {el.title} - {el.status ? 'true' : 'false'}
-        </p>
-      ))
 
-      }
+      {data.length === 0 ? (
+        <p>No Todos Found</p>
+      ) : (
+        data.map((el) => (
+          <p key={el.id}>
+            {el.title} - {el.status ? 'true' : 'false'}
+          </p>
+        ))
+      )}
     </>
-  );
+  );  
 };

@@ -1,8 +1,18 @@
-import axios from "axios";
+import axios, { formToJSON } from "axios";
 import React from "react";
+import { useDispatch } from "react-redux";
 
-export const TodosInput = ({ getApi }) => {
-  const inputValue = React.useRef(null);   // ✅ FIX
+
+import{
+  getApi,
+  addTodosRequest,
+  addTodosFailure,
+  addTodosSuccess,
+} form '../Redux/action.js';
+
+export const TodosInput = ({ }) => {
+  const inputValue = React.useRef();   
+  const dispatch=useDispatch();
 
   const addTodos = () => {
     if (inputValue.current && inputValue.current.value.trim() !== "") {
@@ -13,16 +23,19 @@ export const TodosInput = ({ getApi }) => {
 
       return axios
         .post("http://localhost:8080/todo", data)
-        .then((res) => res.data)
-        .catch((err) => console.log(err));
-    }
-  };
+        .then((res)=>{
+          dispatch(addTodosSuccess);
+          return res;
+        })
+        .catch((err) => {
+        console.log(err)
+        dispatch(addTodosFailure)
+    });
+     }
+    };
 
   const handleAdd = () => {
-    addTodos()?.then(() => {
-      inputValue.current.value = "";  
-      getApi();
-    });
+    addTodos()?.then(() => {inputValue.current.value = "";});
   };
 
   return (
