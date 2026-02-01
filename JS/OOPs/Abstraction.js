@@ -26,7 +26,6 @@ class BankAccount {
     }
   }
 
-  // Public method to show limited detail
   checkBalance() {
     console.log(`Current balance: ₹${this.#balance}`);
   }
