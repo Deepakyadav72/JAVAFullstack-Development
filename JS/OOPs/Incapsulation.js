@@ -9,6 +9,7 @@ class Car2{
         this.#owner=z
     }
     showPrivetVariable (){
+        console.log('🚀 ~ this:', this);
         return `this is priate ${this.#owner}`
     }
     
