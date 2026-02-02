@@ -15,5 +15,5 @@ class Car2{
     
 
 }
-let c2=new Car2("defender","landrover","megFuz");
-console.log('🚀 ~ c2:', c2.showPrivetVariable());
+// let c2=new Car2("defender","landrover","megFuz");
+// console.log('🚀 ~ c2:', c2.showPrivetVariable());
