@@ -7,14 +7,14 @@ class BankAccount {
   }
 
   // Public method - visible to users
-  // deposit(amount) {
-  //   if (amount > 0) {
-  //     this.#balance += amount;
-  //     console.log(`Deposited ₹${amount}`);
-  //   } else {
-  //     console.log("Invalid deposit amount");
-  //   }
-  // }
+  deposit(amount) {
+    if (amount > 0) {
+      this.#balance += amount;
+      console.log(`Deposited ₹${amount}`);
+    } else {
+      console.log("Invalid deposit amount");
+    }
+  }
 
   // Public method - visible to users
   withdraw(amount) {
