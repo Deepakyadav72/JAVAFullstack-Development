@@ -1,3 +1,5 @@
+import { useEffect, useReducer } from "react";
+
 const FETCH_REQUEST= 'FETCH_REQUEST';
 const FETCH_SUCCES= 'FETCH_SUCCES';
 const FETCH_FAITCH= 'FETCH_FAILURE';
@@ -34,3 +36,17 @@ const Reducer =(lodState=initialValue,{type,payload})=>{
                         return oldState;
     }
 };
+
+export const useState=(url)=>{
+    const [state, dispatch]=useReducer{Reducer, initialValue};
+    useEffect(()=>{
+        dispatch({type: FETCH_REQUEST});
+
+        fetch(url)
+        .then((res)=>res.json())
+        .then((res)=>dispatch({type: FETCH_SUCCESS,payload:res}))
+
+        .catch(()=>dispatch({type:FETCH_FAITCH}));
+    },[]);
+    return state;
+}
