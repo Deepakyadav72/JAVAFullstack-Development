@@ -11,3 +11,7 @@ city1[1]="jaunpur";
 city1[2]="pune";
 
 console.log(city1[1]);
+
+
+const city2= new Array("deepa","manoj","vikas");
+console.log(city2[2]);
