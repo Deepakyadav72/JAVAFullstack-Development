@@ -10,12 +10,13 @@ export const App=() =>{
     width:"15px"
 
   }
-  const [value ,setValue]= useState("");
+  const [value, setValue]= useState("");
 
 
   return (
     <>
-      <InputBox length={4} style={style}/>
+      <InputBox  setMainVal={(v)=>setValue(v)} perBox={1} length={4} style={style}/>
+      <h1>{value}</h1>
     </>
   )
 }
