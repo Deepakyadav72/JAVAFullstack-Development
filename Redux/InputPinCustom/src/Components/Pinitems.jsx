@@ -1,11 +1,15 @@
 import React from "react";
 
-export const PinItems=React.forwardRef(({style, max, handleChange},ref) => {
+export const PinItems=React.forwardRef(({style, max, handleChange ,handleBackSpace},ref) => {
 
     const handleKeyUp=(e)=>{
-        handleChange(e.target.value);
-
-
+        switch(e.keyCode){
+            case 8:
+                handleBackSpace()
+                break;
+                default:
+                    handleChange(e.target.value);
+        }
     }
 
     return(

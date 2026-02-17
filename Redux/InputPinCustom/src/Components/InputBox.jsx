@@ -4,45 +4,53 @@ import { PinItems } from "./Pinitems";
 
 export const InputBox = ({ setMainVal, perBox, length, style }) => {
   const [values, setValues] = useState(new Array(length).fill(""));
-  const elements = useRef([]);
+  const elements = useRef(new Array(length).fill(0));
 
   const handleChange = (v, i) => {
     const vals = [...values];
     vals[i] = v;
     setValues(vals);
 
-    // next input focus
     if (v && i < length - 1) {
       elements.current[i + 1]?.focus();
+      setMainVal(vals.join(""));
     }
-
-    setMainVal(vals.join(""));
+    // setMainVal(vals.join(""));
   };
+
+  const handleBackSpace= (i)=>{
+     console.log('🚀 ~ values:', values);
+     const vals=[...values];
+     
+     vals[i]="";
+     setValues(vals);
+     if(i===0)return
+     elements.current[i-1].focus();
+     setMainVal(vals.join(""));
+  }
 
   return (
     <>
-      {values.map((item, index) => (
-        <PinItems
-          key={index}
-          ref={(el) => (elements.current[index] = el)}
-          style={style}
-          max={perBox}
-          handleChange={(dataVal) => handleChange(dataVal, index)}
+      {values.map((item, index) => <PinItems
+          ref={(v) => elements.current[index] = v}
+          style={style} key={index} max={perBox} handleChange={(dataVal) => handleChange(dataVal, index)}
+          handleBackSpace={()=>handleBackSpace(index)}
         />
-      ))}
+      )
+      }
     </>
   );
 };
 
-// ✅ correct propTypes
 InputBox.propTypes = {
   length: PropTypes.number.isRequired,
   perBox: PropTypes.number.isRequired,
-  setMainVal: PropTypes.func.isRequired,
-  style: PropTypes.object,
+  label:PropTypes.string.isRequired
+  
 };
 
 InputBox.defaultProps = {
+  label:"hello",
   length: 3,
-  perBox: 1,
-};
+  perBox: 1
+}
