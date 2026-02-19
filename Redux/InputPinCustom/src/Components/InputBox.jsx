@@ -1,56 +1,74 @@
-import PropTypes from "prop-types";
-import { useRef, useState } from "react";
-import { PinItems } from "./Pinitems";
+// import PropTypes from "prop-types";
+// import { useRef, useState } from "react";
+// import { PinItems } from "./Pinitems";
 
-export const InputBox = ({ setMainVal, perBox, length, style }) => {
-  const [values, setValues] = useState(new Array(length).fill(""));
-  const elements = useRef(new Array(length).fill(0));
+// export const InputBox = ({ setMainVal, perBox, length, style }) => {
+//   const [values, setValues] = useState(new Array(length).fill(""));
+//   const elements = useRef(new Array(length).fill(0));
 
-  const handleChange = (v, i) => {
-    const vals = [...values];
-    vals[i] = v;
-    setValues(vals);
+//   const handleChange = (v, i) => {
+//     const vals = [...values];
+//     vals[i] = v;
+//     setValues(vals);
 
-    if (v && i < length - 1) {
-      elements.current[i + 1]?.focus();
-      setMainVal(vals.join(""));
-    }
-    // setMainVal(vals.join(""));
-  };
+//     if (v && i < length - 1) {
+//       elements.current[i + 1]?.focus();
+//       setMainVal(vals.join(""));
+//     }
+//     // setMainVal(vals.join(""));
+//   };
 
-  const handleBackSpace= (i)=>{
-     console.log('🚀 ~ values:', values);
-     const vals=[...values];
+//   const handleBackSpace= (i)=>{
+//      console.log('🚀 ~ values:', values);
+//      const vals=[...values];
      
-     vals[i]="";
-     setValues(vals);
-     if(i===0)return
-     elements.current[i-1].focus();
-     setMainVal(vals.join(""));
-  }
+//      vals[i]="";
+//      setValues(vals);
+//      if(i===0)return
+//      elements.current[i-1].focus();
+//      setMainVal(vals.join(""));
+//   }
 
-  return (
-    <>
-      {values.map((item, index) => <PinItems
-          ref={(v) => elements.current[index] = v}
-          style={style} key={index} max={perBox} handleChange={(dataVal) => handleChange(dataVal, index)}
-          handleBackSpace={()=>handleBackSpace(index)}
-        />
-      )
-      }
-    </>
-  );
-};
+//   return (
+//     <>
+//       {values.map((item, index) => <PinItems
+//           ref={(v) => elements.current[index] = v}
+//           style={style} key={index} max={perBox} handleChange={(dataVal) => handleChange(dataVal, index)}
+//           handleBackSpace={()=>handleBackSpace(index)}
+//         />
+//       )
+//       }
+//     </>
+//   );
+// };
 
-InputBox.propTypes = {
-  length: PropTypes.number.isRequired,
-  perBox: PropTypes.number.isRequired,
-  label:PropTypes.string.isRequired
+// InputBox.propTypes = {
+//   length: PropTypes.number.isRequired,
+//   perBox: PropTypes.number.isRequired,
+//   label:PropTypes.string.isRequired
   
-};
+// };
 
-InputBox.defaultProps = {
-  label:"hello",
-  length: 3,
-  perBox: 1
-}
+// InputBox.defaultProps = {
+//   label:"hello",
+//   length: 3,
+//   perBox: 1
+// }
+
+
+const handlePaste = (pastedValue) => {
+  const pasteArr = pastedValue.slice(0, length).split("");
+
+  const vals = [...values];
+  pasteArr.forEach((char, index) => {
+    vals[index] = char;
+  });
+
+  setValues(vals);
+  setMainVal(vals.join(""));
+
+  const lastIndex = pasteArr.length - 1;
+  if (lastIndex >= 0) {
+    elements.current[lastIndex]?.focus();
+  }
+};
