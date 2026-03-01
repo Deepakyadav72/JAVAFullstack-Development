@@ -1,6 +1,5 @@
 class BankAccount {
-  #balance; // private property
-
+  #balance; 
   constructor(accountHolder) {
     this.accountHolder = accountHolder;
     this.#balance = 0;
@@ -39,5 +38,3 @@ account.deposit(1000);
 account.withdraw(400);
 account.checkBalance();
 
-// Trying to access private property directly ➡️ Error
-// console.log(account.#balance); ❌ Will throw syntax error
