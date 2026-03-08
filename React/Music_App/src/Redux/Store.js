@@ -4,7 +4,7 @@ import{thunk} from "redux-thunk";
 import {reducer as musicReducer} from "./Reducer";
 
 const composeEnhancers=
-type window === "object" && window.
+typeof window === "object" && window.
 _REDUX_DEVTOOL_EXTENSION_COMPOSE_
 ? window._REDUX_DEVTOOL_EXTENSION_COMPOSE_({
 

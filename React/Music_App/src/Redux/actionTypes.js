@@ -3,14 +3,14 @@ import axios from "axios";
 import * as types from "./Action";
 
 const getMusicRequest=()=>{
-    return{type:SVGUnitTypes.GET_MUSIC_REQUEST,};
+    return{type:types.GET_MUSIC_REQUEST,};
 };
 
 const getMusicSuccess=(payload)=>{
-    return{type:SVGUnitTypes.GET_MUSIC_SUCCESS,payload};
+    return{type:types.GET_MUSIC_SUCCESS,payload};
 };
 const getMusicFailure=(payload)=>{
-    return{type:SVGUnitTypes.GET_MUSIC_FAILURE,payload};
+    return{type:types.GET_MUSIC_FAILURE,payload};
 };
 
 export const getMusicRecords=(dispatch)=>{
