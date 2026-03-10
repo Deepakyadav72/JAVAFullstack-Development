@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 
 
 import {getMusicRecords} from "../Redux/actionTypes"
-import Interceptormanager from './../../node_modules/axios/lib/adapters'
+// import Interceptormanager from './../../node_modules/axios/lib/adapters'
 
 export const MusicAlbum=()=>{
     const Dispatch=useDispatch()
