@@ -1,0 +1,37 @@
+style.css file
+.heading {
+ background-color: rgb(150, 26, 26);
+ border-radius: 18px;
+}
+.heading ul {
+ overflow: auto;
+}
+.heading li {
+ float: left;
+ list-style: none;
+ margin: 13px 70px;
+}
+.heading li a {
+ padding: 3px 3px;
+ text-decoration: none;
+ color: white;
+}
+.heading li a:hover {
+ background-color: black;
+}
+h3{
+ color:red;
+ text-align: center;
+}
+.signup{
+ background-color: powderblue;
+ text-align:center;
+}
+.main img{
+ width:100px;
+ height:100px;
+}
+.main h1{
+ float:right;
+ background-color: aquamarine;
+}

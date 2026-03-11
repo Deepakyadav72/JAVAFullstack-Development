@@ -55,7 +55,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-export const FiltermusicRecord = () => {
+export const FilterMusicRecords = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 

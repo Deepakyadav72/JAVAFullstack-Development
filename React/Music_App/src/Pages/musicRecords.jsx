@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {FilterMusicRecords} from "../Components/FiltermusicRecord";
+import {FilterMusicRecords} from "../Components/FiltermusicRecords";
 import {MusicAlbum} from "../Components/MusicAlbum";
 
 export const MusicRecords=()=>{
