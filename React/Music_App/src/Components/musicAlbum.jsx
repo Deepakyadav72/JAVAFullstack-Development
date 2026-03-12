@@ -7,7 +7,7 @@ import {getMusicRecords} from "../Redux/actionTypes"
 
 export const MusicAlbum=()=>{
     const Dispatch=useDispatch()
-      const musicData=useSelector(store=>store.MusicRecords)
+      const musicData=useSelector(store=>store.musicRecords)
       console.log('🚀 ~ musicData:', musicData);
 
       useEffect(()=>{
