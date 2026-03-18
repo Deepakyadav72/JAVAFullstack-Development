@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible"
+content="IE=edge">
+ <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
+ <title>CNC STAGE CRAFT</title>
+ <link rel="stylesheet" href="style.css">
+ <style>
+    body {
+
+ text-align: center;
+}
+.mydiv{
+
+ border:5px solid red;
+ display: inline-block;
+ margin-left: auto;
+ margin-right: auto;
+ height:200px;
+ background-color: aquamarine;
+}
+ </style>
+</head>
+<body>
+
+ <div class="mydiv">
+ <h3>Arithmetic Calculation</h3>
+ <input type="text" id="n1" placeholder="Enter 1st number" /><br /><br />
+ <input type="text" id="n2" placeholder="Enter 2nd number" /><br /><br />
+ <select id="operators">
+ <option value="+"> Arithmetic Operation</option>
+ <option value="+">+</option>
+ <option value="-">-</option>
+ <option value="/">/</option>
+ <option value="X">X</option>
+ </select>
+ <button onclick="calc();">=</button>
+ <input type="text" size="5" id="result" />
+ </div>
+ <script src="script.js"></script>
+</body>
+</html>

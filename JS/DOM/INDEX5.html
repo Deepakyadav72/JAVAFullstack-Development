@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible"
+content="IE=edge">
+ <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
+ <title>CNC STAGE CRAFT</title>
+ <link rel="stylesheet" href="style.css">
+ <style>
+    .container{
+ border:2px solid red;
+ width:150px;
+ height:150px;
+}
+ </style>
+</head>
+<body>
+ <div class="myform">
+ <input type="text" id="txt1" placeholder="Enter your name">
+ <input type="button" id="mybtn" value="submit" onclick="hello()">
+ </div>
+ <br><br>
+ <div class="container">
+ <p id="output"></p>
+ </div>
+ <script>
+ const txt1=document.getElementById("txt1");
+ const out1=document.getElementById("output");
+
+ function hello(){
+    out1.innerHTML=txt1.value;
+ }
+
+
+ </script>
+</body>
+</html>
