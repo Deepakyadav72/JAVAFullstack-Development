@@ -1,33 +1,49 @@
-import React, {useEffect} from "react";
-import {useDispatch, useSelector} from 'react-redux'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { useSearchParams, Link } from 'react-router-dom';
+import { getMusicRecords } from '../Redux/App/actionType';
 
-import {getMusicRecords} from "../Redux/actionTypes"
-// import Interceptormanager from './../../node_modules/axios/lib/adapters'
+export const MusicAlbum = () => {
+  const dispatch = useDispatch();
+  const musicData = useSelector((store) => store.app.musicRecords);
+  const [searchParams] = useSearchParams();
 
-export const MusicAlbum=()=>{
-    const Dispatch=useDispatch()
-      const musicData=useSelector(store=>store.musicRecords)
-      console.log('🚀 ~ musicData:', musicData);
+  useEffect(() => {
+    const genre = searchParams.getAll('genre');
 
-      useEffect(()=>{
-        Dispatch(getMusicRecords)
-      },[])
+    const queryParams = {
+      params: {
+        genre: genre,
+        _sort: searchParams.get('_sort') && 'year',
+        _order: searchParams.get('_sort'),
+      },
+    };
 
-      return (
-        <>
-            {
-                musicData.length>0 &&musicData.map((album)=>{
-                    return <div key ={album.id}>
-                    <h3>{album.id}</h3>
-                    <h4>{album.name}</h4>
-                    <h3>{album.genre}</h3>
-                    <img src={album.img} alt={album.name}/>img
+    dispatch(getMusicRecords(queryParams));
+  }, [searchParams]);
 
-                    </div>
-                })
-            }
-        </>
-      )
-      
-}
+  return (
+    <>
+      {musicData.length > 0 &&
+        musicData.map((album) => {
+          return (
+            <div
+              key={album.id}
+              style={{ border: '1px solid black', margin: '5px' }}
+            >
+              <h3>{album.id}</h3>
+              <h4>{album.name}</h4>
+              <h3>{album.genre}</h3>
+              <h4>{album.year}</h4>
+              <img src={album.img} alt={album.name} />
+
+              <Link to={`music/${album.id}/edit_music`}>
+                <button>edit</button>
+              </Link>
+            </div>
+          );
+        })}
+    </>
+  );
+};

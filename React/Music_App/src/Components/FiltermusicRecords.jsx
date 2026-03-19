@@ -1,23 +1,38 @@
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-
-import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import data from '../../db.json';
 
 export const FilterMusicRecords = () => {
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [filterVal, setFilterVal] = useState(
-    searchParams.getAll('genre') || [],
+    searchParams.getAll('genre') || []
   );
+
+  const [sort, setSort] = React.useState(
+    searchParams.get('_sort') || ''
+  );
+
+  const [keys] = React.useState(() => {
+    return data.albums
+      .map((el) => {
+        let value = Object.values(el.genre).join('');
+        return value;
+      })
+      .reduce((acc, curr) => {
+        acc[curr] = (acc[curr] || 0) + 1;
+        return acc;
+      }, {});
+  });
 
   const handleFilter = (e) => {
     const option = e.target.name;
 
     const newArr = [...filterVal];
 
-    if (filterVal.includes(option)) {
-      newArr.splice(newArr.indexOf(option),1);
+    if (newArr.includes(option)) {
+      newArr.splice(newArr.indexOf(option), 1);
     } else {
       newArr.push(option);
     }
@@ -25,55 +40,68 @@ export const FilterMusicRecords = () => {
     setFilterVal(newArr);
   };
 
-  // ✅ Update URL when filterVal changes
+  const handleSort = (e) => {
+    setSort(e.target.value);
+  };
+
   useEffect(() => {
-    const Param={};
-    filterVal && (Params.genre=filterVal);
+    const Params = {};
+
+    filterVal && (Params.genre = filterVal);
+
+    sort && (Params._sort = sort);
 
     setSearchParams(Params);
-    
-  }, [filterVal, setSearchParams]);
+  }, [sort, filterVal, setSearchParams]);
 
   return (
     <>
-      <h1>Filter</h1>
+      <h1>filter</h1>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "start",
-          flexDirection: "column",
-        }}
-      >
+      {Object.keys(keys).map((el, i) => {
+        return (
+          <div
+            key={i + 1}
+            style={{
+              display: 'flex',
+              alignItems: 'start',
+              flexDirection: 'column',
+            }}
+          >
+            <div>
+              <input
+                type="checkbox"
+                name={el}
+                onChange={handleFilter}
+                defaultChecked={filterVal.includes(el)}
+              />
+              <label>{el}</label>
+            </div>
+          </div>
+        );
+      })}
+
+      <h2>sort</h2>
+
+      <div onChange={handleSort}>
         <div>
+          <label>asc</label>
           <input
-            type="checkbox"
-            name="K-Pop"
-            checked={filterVal.includes("k-pop")}
-            defaultChecked={filterVal.includes
-            ('K-Pop')}
+            type="radio"
+            value="asc"
+            name="sort"
+            defaultChecked={sort.includes('asc')}
           />
-          <label>K-pop</label>
         </div>
 
         <div>
+          <label>desc</label>
           <input
-            type="checkbox"
-            name="Holiday"
-            checked={filterVal.includes("Holiday")}
-            onChange={handleFilter}
+            type="radio"
+            value="desc"
+            name="sort"
+            defaultChecked={sort.includes('desc')}
           />
-          <label>Holiday</label>
-        </div>
-
-        <div>
-          <input
-            type="checkbox"
-            name="heavy Metal"
-            checked={filterVal.includes("heavy Metal")}
-            onChange={handleFilter}
-          />
-          <label>Heavy Metal</label>
         </div>
       </div>
     </>
