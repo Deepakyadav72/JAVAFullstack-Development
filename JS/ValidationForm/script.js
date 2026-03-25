@@ -17,5 +17,26 @@ if(lname==""){
     return false;
     
 }
+if(email==""){
+    document.getElementById("emailError").innerHTML="Enter the  email";
+    return false;
+    
+}
+if(!gender==""){
+    document.getElementById("genderError").innerHTML="Enter the  gender";
+    return false;
+    
+}
+if(skills.length==0){
+    document.getElementById("skillsError").innerHTML="select your city";
+    return false;
+    
+}
+if(city==""){
+    document.getElementById("cityError").innerHTML="select your city";
+    return false;
+    
+}
+return true;
 
 }
