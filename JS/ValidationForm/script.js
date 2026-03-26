@@ -1,4 +1,14 @@
 function validation(){
+
+    document.getElementById("fnameError").innerHTML="";
+    document.getElementById("lnameError").innerHTML="";
+    document.getElementById("emailError").innerHTML="";
+    document.getElementById("passError").innerHTML="";
+    document.getElementById("genderError").innerHTML="";
+    document.getElementById("skillsError").innerHTML="";
+    document.getElementById("cityError").innerHTML="";
+
+
     var fname= document.getElementById("fname").value;
      var lname= document.getElementById("lname").value;
      var email= document.getElementById("email").value;
@@ -20,8 +30,11 @@ if(lname==""){
 if(email==""){
     document.getElementById("emailError").innerHTML="Enter the  email";
     return false;
-    
 }
+    if(pass==""){
+    document.getElementById("passError").innerHTML="Enter the  password";
+    return false;
+    }
 if(!gender==""){
     document.getElementById("genderError").innerHTML="Enter the  gender";
     return false;
