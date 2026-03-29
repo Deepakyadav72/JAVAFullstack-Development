@@ -25,9 +25,50 @@
 </html> -->
 
 
-<!-- Calsi with arrow function and callbackfunction -->
+
+
+
+
+<!-- =====================Exampal of callbackfunction===================== -->
 
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calci(a,b,doSomething){
+            return doSomething(a,b);
+        }
+
+        const Add=calci(29,23,function(n1,n2){
+            return n1+n2;
+        });
+        const Sub=calci(20,13,function(n1,n2){
+            return n1-n2;
+        });
+        const Multi=calci(10,4,function(n1,n2){
+            return n1*n2;
+        });
+        const div=calci(50,5,function(n1,n2){
+            return n1/n2;
+        });
+
+        console.log("sum is:"+ Add);
+        console.log("Sub is:"+ Sub);
+        console.log("Multi is:"+ Multi);
+        console.log("div is:"+ div);
+
+    </script>
+</body>
+</html>
+
+<!-- ========Calsi with arrow function and callbackfunction=========== -->
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,4 +101,4 @@
 
     </script>
 </body>
-</html>
+</html> -->
