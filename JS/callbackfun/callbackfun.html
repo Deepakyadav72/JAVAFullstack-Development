@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,6 +20,44 @@
         setTimeout(()=>{
             hello1("Yadav", hello2);
         },4000)
+    </script>
+</body>
+</html> -->
+
+
+<!-- Calsi with arrow function and callbackfunction -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     function calsi(a,b,doSomething){
+        return doSomething(a,b);
+
+     }
+     const sum=(a,b)=>a+b;
+     const sumResult=calsi(10,20,sum);
+     const sub=(a,b)=>a-b;
+     const subResult=calsi(10,20,sub);
+     const multi=(a,b)=>a*b;
+     setTimeout(() => {
+        const multiResult=calsi(10,20,multi);
+         console.log("multi is:"+multiResult);
+
+     },4000);
+     
+     const Div=(a,b)=>a/b;
+     const DivResult=calsi(10,20,Div);
+
+     console.log("sum is:"+sumResult);
+      console.log("sub is:"+subResult);
+        console.log("Div is:"+DivResult);
+
     </script>
 </body>
 </html>
