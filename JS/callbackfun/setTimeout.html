@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetTimeOut</title>
+</head>
+<body>
+    <script>
+        // this is arrow function
+        const f1=()=>{
+            console.log("This is function 1");
+        }
+        const f2=()=>{
+            console.log("this is function 2");
+        }
+        f2();
+        setTimeout(()=>{
+            f1();
+
+        },5000)
+    </script>
+</body>
+</html>
