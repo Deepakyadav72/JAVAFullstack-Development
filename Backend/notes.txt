@@ -1,0 +1,4 @@
+- to create folder 
+    -mkdir <dir_name>
+
+-to create file 
