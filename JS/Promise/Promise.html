@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        let taskDone=false;
+       /* let taskDone=false;
         let pr= new Promise(function(resolve,reject){
           if(taskDone){
             resolve("Task Done");
@@ -16,7 +16,20 @@
             reject("Task not done");
           }
         });
-        console.log(pr);
+        console.log(pr);*/
+
+
+        function prom1(taskDone){
+            return new Promise(function(resolve,reject){
+               if(taskDone){
+            resolve("Task Done");
+          }
+          else{
+            reject("Task not done");
+          } 
+            });
+        }
+        console.log(prom1(false));
         
     </script>
 </body>
