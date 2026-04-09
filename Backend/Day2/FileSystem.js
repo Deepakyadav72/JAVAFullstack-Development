@@ -5,7 +5,8 @@ console.log('🚀 ~ readFileSync:', readFileSync);
 
 
 // Crud
-//==============Read=============
+
+//! Read
 // fs.readFile('./even.js',{encoding: 'utf-8'},(err,data)=>{
 //     if(data){
 //         console.log(data);
@@ -17,7 +18,7 @@ console.log('🚀 ~ readFileSync:', readFileSync);
 // });
 
 
-//========Create file===========
+// !========Create file===========
 const dataValue=fs.writeFileSync('./note.txt','Deepak');
 
 // fs.writeFile('./note.txt','hello',(err)=>{
@@ -25,3 +26,48 @@ const dataValue=fs.writeFileSync('./note.txt','Deepak');
 //         console.log(err);
 //     }
 // });
+
+
+//!===============Update=========
+/*fs.appendFile('./note.txt','Deepak',(err)=>{
+     if(err){
+        console.log(err);
+    } });*/
+
+//!=============Delete===========
+
+/*fs.rm('./note.txt',(err)=>{
+     if(err){
+         console.log(err);
+
+     }
+         else{
+            console.log(data)
+        }
+ });*/
+
+
+ //!=========Edit
+
+ fs.readFile('./note.txt','utf-8',(err,data)=>{
+    if(err){
+        console.log(err);
+    }
+    const value=data.split('');
+
+    const updateValue=data.replace(
+        value.splice(
+            value.findIndex((el)=>el=='world'),
+            1,
+        ),
+        ''
+    );
+    console.log(updateValue);
+    fs.writeFile('./note.txt',updateValue.trim(),(errs,data1)=>{
+        if(err) console.log(errs);
+        console.log(data1);
+    });
+
+ });
+
+ 
