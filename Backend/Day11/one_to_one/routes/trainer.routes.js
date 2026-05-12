@@ -1,0 +1,30 @@
+const express=require('express');
+
+const trainerRoutes=express.Router();
+
+const{trainerModel}=require('../model/trainer.model');
+
+//path="/trainer/"
+//read
+
+trainerRoutes.get('/',async(req,res)=>{
+    const trainerData=await trainerModel.find();
+    res.send({msg:'data create ',data:trainerData});
+});
+
+//path="/trainer/createtrainer"
+//create
+
+trainerRoutes.post('/createtrainer', async (req, res) => {
+  if (req.body) {
+    const trainerData = new trainerModel(req.body)
+    await trainerData.save()
+    res.send({ msg: 'data created', data: trainerData })
+  }
+})
+
+trainerRoutes.get('/updatetrainer', (req, res) => {})
+
+trainerRoutes.get('/deletetrainer', (req, res) => {})
+
+module.exports = { trainerRoutes }
